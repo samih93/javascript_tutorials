@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 110%;
+        }
+
+        #main {
+            width: 500px;
+        }
+
+        .lab {
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        .ct {
+            width: 140px;
+            border: 2px solid blue;
+            font-size: 110%;
+        }
+
+        .c1 {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .c1i {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        td {
+            border: 2px solid blue;
+            text-align: center
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .c2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .c2 input {
+            display: block;
+            width: 100%;
+            border: none;
+            font-weight: bold;
+            background-color: #04AA6D;
+            padding: 14px 28px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            font-size: 110%;
+        }
+
+        /* input[type="button"]:hover {
+            background-color: red;
+            color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="c1">
+            <div class="c1i"> <label for="dt" class="lab">Dimension du tableau</label> <input type="text" class="ct" id="dt"> </div>
+            <div class="c1i"> <label for="vmin" class="lab">La valeur minimale</label> <input type="text" class="ct" id="vmin"> </div>
+            <div class="c1i"> <label for="vmax" class="lab">La valeur maximale</label> <input type="text" class="ct" id="vmax"> </div>
+        </div>
+        <div class="c2"> <input type="button" onclick="afficher()" value="Générez un tableau" />
+        </div>
+        <div class="c3" id="aff"></div>
+    </div>
+</body>
+<script type="text/javascript" src="ex1.js"></script>
+
+</html>

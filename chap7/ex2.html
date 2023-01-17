@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            margin: 0.5em;
+        }
+
+        input {
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript" src="ex2.js"></script>
+</head>
+
+<body>
+    <h3> Chercher de Palindromes </h3>
+    <div> Phrase: <input type="text" id="phrase" onblur="estPhrase()" size="50" /> </div>
+    <div> Longueur de palindrome : Min : <input id="min" type="text" onblur="estEntier()" size="2" /> Max : <input
+            id="max" type="text" onblur="estEntier()" size="2" /> </div>
+    <div> <button id="chercher" onclick="trouver()" disabled="disabled"> Chercher </button> </div>
+    <ul id="palin"></ul>
+    <div id="resultat"></div>
+</body>
+
+</html>

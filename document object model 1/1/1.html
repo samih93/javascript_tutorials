@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn JavaScript</title>
+  <script>
+    // Your Code Here
+    window.onload = function () { // Or  document.addEventListener("DOMContentLoaded", function(event) {
+
+      let links = document.querySelectorAll('.open');
+      console.log(links);
+      links.forEach(function (element) {
+        console.log(element);
+        if (element.innerHTML === 'Youtube')
+          element.click();
+      })
+    }
+
+  </script>
+</head>
+
+<body>
+  <a class="open" href="https://google.com">Google</a>
+  <a class="open" href="https://youtube.com">Youtube</a>
+  <a class="open" href="https://facebook.com">Facebook</a>
+  <a class="linked" href="https://linkedin.com">samih</a>
+  <script src="1.js"></script>
+</body>
+
+</html>

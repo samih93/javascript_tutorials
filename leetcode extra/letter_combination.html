@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var letterCombinations = function (digits) {
+
+            var map = new Map(
+                [
+                    [2, ['a', 'b', 'c']],
+                    [3, ['d', 'e', 'f']],
+                    [4, ['g', 'h', 'i']],
+                    [5, ['j', 'k', 'l']],
+                    [6, ['m', 'n', 'o']],
+                    [7, ['p', 'q', 'r', 's']],
+                    [8, ['t', 'u', 'v']],
+                    [9, ['w', 'x', 'y', 'z']
+                    ]
+                ]
+            );
+
+
+            if (digits.length == 1) {
+                return map.get(parseInt(digits));
+            }
+
+
+            if (digits == "")
+                return [];
+
+
+            if (digits != "" && digits.length >= 2) {
+                var firstArray = [];
+                var finalres = [];
+
+
+                firstArray = map.get(parseInt(digits[0]));
+
+
+                switch (digits.length) {
+                    case 2:
+                        var secondArray = map.get(parseInt(digits[1]));
+                        for (j = 0; j < firstArray.length; j++) {
+                            for (k = 0; k < secondArray.length; k++) {
+                                finalres.push(firstArray[j] + secondArray[k]);
+                            }
+                            console.log(`step ${j} : ${finalres}`);
+
+                        }
+                        break;
+
+                    case 3:
+                        var secondArray = map.get(parseInt(digits[1]));
+                        var thirdArray = map.get(parseInt(digits[2]));
+                        for (j = 0; j < firstArray.length; j++) {
+                            for (k = 0; k < secondArray.length; k++) {
+                                for (n = 0; n < thirdArray.length; n++) {
+                                    finalres.push(firstArray[j] + secondArray[k] + thirdArray[n]);
+                                }
+                            }
+                            console.log(`step ${j} : ${finalres}`);
+
+                        }
+                        break;
+
+                    case 4:
+                        var secondArray = map.get(parseInt(digits[1]));
+                        var thirdArray = map.get(parseInt(digits[2]));
+                        var fourthArray = map.get(parseInt(digits[3]));
+                        for (j = 0; j < firstArray.length; j++) {
+                            for (k = 0; k < secondArray.length; k++) {
+                                for (n = 0; n < thirdArray.length; n++) {
+                                    for (m = 0; m < fourthArray.length; m++) {
+                                        finalres.push(firstArray[j] + secondArray[k] + thirdArray[n] + fourthArray[m]);
+
+                                    }
+                                }
+                            }
+                            console.log(`step ${j} : ${finalres}`);
+
+                        }
+                        break;
+
+
+
+                }
+
+
+            }
+            return finalres;
+            console.log(firstArray);
+
+        }
+
+        console.log(letterCombinations("234"));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

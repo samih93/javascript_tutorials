@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+            let btn_success = document.querySelector('#success');
+            let btn_error = document.querySelector('#error');
+            let btn_warning = document.querySelector('#warning');
+
+            btn_success.onclick = function(){
+        Swal.fire({
+            position: 'top-end',
+
+        title: 'Success!',
+        text: 'Do you want to continue',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+});       };
+
+btn_error.onclick = function(){
+        Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+});       };
+btn_warning.onclick = function(){
+        Swal.fire({
+        title: 'Warning!',
+        text: 'Do you want to continue',
+        icon: 'warning',
+        confirmButtonText: 'Cool'
+});       };
+            
+//     
+        }
+
+    </script>
+</head>
+<body>
+    <button id="success">Success</button>
+    <button id="error">Error</button>
+    <button id="warning">Warning</button>
+
+</body>
+<script src="sweetalert2@11.js"></script> 
+</html>

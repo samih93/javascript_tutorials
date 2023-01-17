@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        div {
+            margin: 0.5em;
+        }
+
+        input {
+            border: 1px solid black;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+    <script src="49f58676ec.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="ex1.js">
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr class="tr_voiture">
+                <td> Voiture :</td>
+                <td><input id="voiture" name="voiture" /> <i class="fa-solid fa-check hidden" style='color:green'></i><i
+                        class="fa-solid fa-circle-exclamation hidden" style='color:red'></i>
+                </td>
+            </tr>
+            <tr class="tr_pays">
+                <td>
+                    Pays de construction :
+                </Td>
+                <td>
+                    <input id="annee" name="annee" /> <i class="fa-solid fa-check hidden" style='color:green'></i><i
+                        class="fa-solid fa-circle-exclamation hidden" style='color:red'></i>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" name="submit" onclick="verifier()" value="Envoyer" /></td>
+            </tr>
+
+        </table>
+
+    </form>
+</body>
+
+</html>
