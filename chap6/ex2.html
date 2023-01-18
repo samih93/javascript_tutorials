@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript - 1</title>
+    <style>
+        .titre {
+            color: red;
+            font-weight: bold;
+        }
+
+        #main {
+            font-size: 120%;
+            background-color: lightblue;
+            width: 500px;
+        }
+
+        div {
+            padding: 3px;
+        }
+
+        label {
+            display: inline-block;
+            width: 170px;
+        }
+
+        input,
+        button {
+            font-size: 110%;
+        }
+
+        input[readonly] {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div id="main">
+            <div class="titre"> Informations personnelles </div>
+            <div> <label for="prenom">Prénom </label>
+                <input type="text" name="prenom" id="prenom" />
+            </div>
+            <div> <label for="nom">Nom </label>
+                <input type="text" name="nom" id="nom" />
+            </div>
+            <div> <label for="naiss">Date naissance </label>
+                <input type="text" name="naiss" id="naiss" />
+            </div>
+            <div class="titre"> Informations Compte </div>
+            <div> <label for="mail">Email </label>
+                <input type="text" name="mail" id="mail" readonly />
+            </div>
+            <div> <label for="user">User name </label>
+                <input type="text" name="user" id="user" readonly />
+            </div>
+            <div> <label for="pass">Password </label>
+                <input type="text" name="pass" id="pass" readonly />
+            </div>
+            <div class="titre"> Fonctions </div>
+            <div> <input type="button" name="gm" value="Générer Email" onclick="genererEmail()" />
+                <input type="button" name="gu" value="Générer Username" onclick="genererUser()" />
+                <input type="button" name="ch" value="concaténer 3 Champ" onclick="concaténer3Champ()" />
+            </div>
+            <div> <button type="button" onclick="genererPass()"> Générer
+                    Password </button>
+                <button type="reset"> Initialiser </button>
+            </div>
+        </div>
+    </form>
+</body>
+<script type="text/javascript" src="ex2.js"></script>
+
+
+</html>
