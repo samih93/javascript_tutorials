@@ -60,43 +60,39 @@ function estEntier() {
     }
 
     // if one field empty
-    if (min == "" || max == "") {
-        if (min != "") {
-            if (!isNaN(parseInt(min)) && parseInt(min) > 0) {
-                document.getElementById('chercher').removeAttribute('disabled');
-            }
-            else {
-                document.getElementById('chercher').setAttribute('disabled', "disabled");
-
-            }
-
-
+    if (min != "" && max == "") {
+        if (!isNaN(parseInt(min)) && parseInt(min) > 0) {
+            document.getElementById('chercher').removeAttribute('disabled');
         }
-
-        if (max != "") {
-            if (!isNaN(parseInt(max)) && parseInt(max) > 0) {
-                document.getElementById('chercher').removeAttribute('disabled');
-
-
-            }
-            else {
-                document.getElementById('chercher').setAttribute('disabled', "disabled");
-            }
+        else {
+            document.getElementById('chercher').setAttribute('disabled', "disabled");
 
         }
 
     }
 
-    // if two fiels empty
-    if (min == "" && max == "") {
-        document.getElementById('chercher').removeAttribute('disabled');
+    if (min = "" && max != "") {
+        if (!isNaN(parseInt(max)) && parseInt(max) > 0) {
+            document.getElementById('chercher').removeAttribute('disabled');
+
+        }
+        else {
+            document.getElementById('chercher').setAttribute('disabled', "disabled");
+        }
 
     }
+}
 
-
-
+// if two fiels empty
+if (min == "" && max == "") {
+    document.getElementById('chercher').removeAttribute('disabled');
 
 }
+
+
+
+
+
 
 function trouver() {
 
