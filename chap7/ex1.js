@@ -34,7 +34,23 @@ function estAnnee() {
   return false;
 }
 function estPays() {
-  // à compléter
+
+  var txtpays = document.querySelector("#pays");
+
+  var pay = txtpays.value.trim().toLowerCase();
+  var res = false;
+
+
+
+  for (i = 0; i < pays.length; i++) {
+    if (pays[i].toLowerCase() == pay)
+      return true;
+  }
+
+
+  return false;
+
+
 }
 function verifier() {
   //! is Voiture
@@ -52,7 +68,7 @@ function verifier() {
   //! isAnne
   var isyear = estAnnee();
 
-  var icons = document.querySelectorAll(".tr_pays i");
+  var icons = document.querySelectorAll(".tr_anne i");
 
   if (isyear == true) {
     icons[0].classList.remove("hidden");
@@ -61,4 +77,42 @@ function verifier() {
     icons[0].classList.add("hidden");
     icons[1].classList.remove("hidden");
   }
+
+
+  //!  isPays
+  var isP = estPays();
+
+  var icons = document.querySelectorAll(".tr_pays i");
+
+  if (isP == true) {
+    icons[0].classList.remove("hidden");
+    icons[1].classList.add("hidden");
+    document.getElementById('pays').style.cssText = "border:1px solid green";
+
+  } else {
+    icons[0].classList.add("hidden");
+    icons[1].classList.remove("hidden");
+
+    document.getElementById('pays').style.cssText = "border:1px solid red";
+  }
+
+
+  if (isP && isyear && isvoiture) {
+    document.location = "https://www.google.com/";
+  }
+
 }
+
+
+function modifier() {
+  var tr_pays = document.querySelector('.listOfradio');
+  var res = "";
+  pays.forEach(function (e) {
+    res += `<input type="radio" id=${e.toLowerCase()} name="pays" value=${e.toUpperCase()}>`;
+    res += `<label for="${e.toLowerCase()}">${e}</label>`;
+
+  });
+
+  tr_pays.innerHTML = res;
+}
+

@@ -17,10 +17,7 @@
             display: none !important;
         }
     </style>
-    <script src="49f58676ec.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="ex1.js">
 
-    </script>
 </head>
 
 <body>
@@ -34,7 +31,20 @@
             </tr>
             <tr class="tr_pays">
                 <td>
-                    Pays de construction :
+                    List de Pays :
+                </Td>
+                <td class="listOfradio">
+                    <input id="pays" name="pays" /> <i class="fa-solid fa-check hidden" style='color:green'></i><i
+                        class="fa-solid fa-circle-exclamation hidden" style='color:red'></i>
+
+
+                </td>
+            </tr>
+
+
+            <tr class="tr_anne">
+                <td>
+                    Anne :
                 </Td>
                 <td>
                     <input id="annee" name="annee" /> <i class="fa-solid fa-check hidden" style='color:green'></i><i
@@ -42,12 +52,18 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="button" name="submit" onclick="verifier()" value="Envoyer" /></td>
+                <td><input type="button" name="submit" onclick="verifier()" value="Verifier" /></td>
+                <td><input type="button" name="submit" onclick="modifier()" value="Modifier" /></td>
             </tr>
 
         </table>
 
     </form>
 </body>
+
+<script src="49f58676ec.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="ex1.js">
+
+</script>
 
 </html>
