@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <style>
+        select {
+            margin: 5px 50px;
+        }
+
+        #bt {
+            font-size: 120%;
+            display: inline-block;
+            border: 1px solid black
+        }
+    </style>
+    <script> let villes = ['Beyrouth', 'Tripoli', 'Sidon', 'Tyr', 'Nabatieh', 'Chekka', 'Jounieh', 'Zahlé', 'Baabda', 'Zgharta', 'Baalbek', 'Aley', 'Byblos', 'Rayak', 'Marjayoun', 'Amioun', 'Jezzine', 'Rachaya', 'Hermel', 'Batroun', 'Halba'];
+        let lettres = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
+        res_list1 = "";
+        res_list2 = "";
+        res_list3 = "";
+        function creerListe() {
+            var list1 = document.getElementById('liste1');
+            var list2 = document.getElementById('liste2');
+            var list3 = document.getElementById('liste3');
+            for (i = 0; i < villes.length; i++) {
+
+
+                if (i < 7)
+                    res_list1 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                else
+                    if (i < 14)
+                        res_list2 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                    else
+                        res_list3 += `<option value=${villes[i]}>${villes[i]}</option>`;
+
+                list1.innerHTML = res_list1;
+                list2.innerHTML = res_list2;
+                list3.innerHTML = res_list3;
+
+
+
+            }
+
+
+
+        }
+
+        function creerRadio() {
+            var res_radio = "";
+
+            lettres.forEach(function (e) {
+                res_radio += `<input type=radio id=${e} onclick='choisir(this)' name=lettre value=${e}><label for='${e}'>${e}</label>`;
+            });
+
+            document.getElementById('bt').innerHTML = res_radio;
+        }
+
+        function choisir(element) {
+            var list1 = document.getElementById('liste1');
+            var list1_options = list1.options;
+
+            var list2 = document.getElementById('liste2');
+            var list2_options = list2.options;
+
+            var list3 = document.getElementById('liste3');
+            var list3_options = list3.options;
+
+            for (i = 0; i < list1_options.length; i++) {
+                s
+
+                // ! list 1 
+                if (list1_options[i].value.toLowerCase().startsWith(element.value)) {
+                    list1_options[i].setAttribute("selected", '');
+                }
+                else {
+                    list1_options[i].removeAttribute("selected");
+                }
+
+                // ! list 2 
+                if (list2_options[i].value.toLowerCase().startsWith(element.value)) {
+                    list2_options[i].setAttribute("selected", '');
+                }
+                else {
+                    list2_options[i].removeAttribute("selected");
+                }
+
+                // ! list 3 
+                if (list3_options[i].value.toLowerCase().startsWith(element.value)) {
+                    list3_options[i].setAttribute("selected", '');
+                }
+                else {
+                    list3_options[i].removeAttribute("selected");
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body onload="creerListe(); creerRadio();">
+    <h2>Villes libanaises </h2>
+    <div> <select name="liste1" id="liste1" size="7" multiple></select> <select name="liste2" id="liste2" size="7"
+            multiple></select> <select name="liste2" id="liste3" size="7" multiple></select> </div>
+    <div id="bt"> </div>
+</body>
+
+</html>

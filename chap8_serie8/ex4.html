@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        select {
+            margin: 10px 50px;
+        }
+
+        #bt {
+            font-size: 120%;
+            display: inline-block;
+            border: 1px solid black
+        }
+    </style>
+</head>
+
+<html>
+
+<head>
+    <style>
+        select {
+            margin: 5px 50px;
+        }
+
+        #bt {
+            font-size: 120%;
+            display: inline-block;
+            border: 1px solid black
+        }
+    </style>
+    <script>
+        let villes = ['Beyrouth-C', 'Tripoli-N', 'Sidon-S', 'Tyr-S', 'Nabatieh-S', 'Chekka-N', 'Jounieh-M', 'Zahlé-B',
+            'Baabda-M', 'Zgharta-N', 'Baalbek-B', 'Aley-M', 'Byblos-M', 'Rayak-B', 'Marjayoun-S', 'Amioun-N', 'Jezzine-S',
+            'Rachaya-B', 'Hermel-B', 'Batroun-N', 'Halba-N'];
+
+        let lettres = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
+        res_list1 = "";
+        res_list2 = "";
+        res_list3 = "";
+        function creerListe() {
+            var list1 = document.getElementById('liste1');
+            var list2 = document.getElementById('liste2');
+            var list3 = document.getElementById('liste3');
+            for (i = 0; i < villes.length; i++) {
+                if (i < 7) res_list1 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                else
+                    if (i < 14) res_list2 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                    else
+                        res_list3 += `<option value=${villes[i]}>${villes[i]}</option>`;
+
+                list1.innerHTML = res_list1;
+                list2.innerHTML = res_list2;
+                list3.innerHTML = res_list3;
+
+
+
+            }
+
+
+
+        }
+
+        function creerRadio() {
+            var res_radio = "";
+
+            lettres.forEach(function (e) {
+                res_radio += `<input type=radio id=${e} onclick='choisir(this)' name=lettre value=${e}><label
+                for='${e}'>${e}</label>`;
+            });
+
+            document.getElementById('bt').innerHTML = res_radio;
+        }
+
+
+
+    </script>
+</head>
+
+<body onload="creerListe(); creerRadio();">
+    <h2>Villes libanaises </h2>
+    <div> <select name="liste1" id="liste1" size="7" multiple></select> <select name="liste2" id="liste2" size="7"
+            multiple></select> <select name="liste2" id="liste3" size="7" multiple></select> <input type="button"
+            value="Supprimer une ligne" onclick="supprimer()" /> </div>
+    </div>
+    <table border="1" id="tb"> </table>
+</body>
+
+</html>

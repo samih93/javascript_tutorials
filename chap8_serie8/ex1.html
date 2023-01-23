@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        div {
+            margin: 10px;
+        }
+
+        input[type=button],
+        #res {
+            font-size: 130%;
+            color: white;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        function calculer(element) {
+            console.log(element.value);
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <h2>Opérations arithmetiques </h2>
+    <div>Valeur1 <input id="v1" /> Valeur2 <input id="v2" /></div>
+    <div><input type="button" value=" + " onclick="calculer(this)" />&emsp; <input type="button" value=" - "
+            onclick="calculer(this)" />&emsp; <input type="button" value=" * " onclick="calculer(this)" />&emsp; <input
+            type="button" value=" / " onclick="calculer(this)" /> </div>
+    <div id="res"> </div>
+</body>
+
+</html>

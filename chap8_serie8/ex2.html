@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        div {
+            margin: 5px;
+        }
+
+        #res {
+            font-size: 130%;
+            padding: 5px;
+        }
+
+        .res1 {
+            color: white;
+            background-color: blue;
+        }
+
+        .res2 {
+            color: white;
+            background-color: red;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h2>Poids idéal</h2>
+    <div>Votre Age <input id="age" /> &emsp;Votre Taille(cm) <input id="taille" /></div>
+    <div>Homme <input type="radio" name="genre" id="h" checked="checked" /> Femme <input type="radio" name="genre"
+            id="f" /> &emsp; Votre poids actuel <input id="poids" /></div>
+    <div><input type="button" value="Calculer Poids idéal" onclick="calculPoids()" /></div>
+    <div class="x" id="res"> </div>
+</body>
+
+</html>
