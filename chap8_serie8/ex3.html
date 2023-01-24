@@ -11,34 +11,42 @@
             display: inline-block;
             border: 1px solid black
         }
+
+        select option[selected] {
+            background-color: aqua;
+        }
     </style>
     <script> let villes = ['Beyrouth', 'Tripoli', 'Sidon', 'Tyr', 'Nabatieh', 'Chekka', 'Jounieh', 'Zahlé', 'Baabda', 'Zgharta', 'Baalbek', 'Aley', 'Byblos', 'Rayak', 'Marjayoun', 'Amioun', 'Jezzine', 'Rachaya', 'Hermel', 'Batroun', 'Halba'];
-        let lettres = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
-        res_list1 = "";
-        res_list2 = "";
-        res_list3 = "";
+        let lettres = [...Array(26)].map((_, i) =>
+            String.fromCharCode(i + 65));
+
+        list1_options = "";
+        list2_options = "";
+        list3_options = "";
+
+
         function creerListe() {
             var list1 = document.getElementById('liste1');
             var list2 = document.getElementById('liste2');
             var list3 = document.getElementById('liste3');
+
             for (i = 0; i < villes.length; i++) {
 
 
                 if (i < 7)
-                    res_list1 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                    list1_options += `<option value=${villes[i]}>${villes[i]}</option>`;
                 else
                     if (i < 14)
-                        res_list2 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                        list2_options += `<option value=${villes[i]}>${villes[i]}</option>`;
                     else
-                        res_list3 += `<option value=${villes[i]}>${villes[i]}</option>`;
+                        list3_options += `<option value=${villes[i]}>${villes[i]}</option>`;
 
-                list1.innerHTML = res_list1;
-                list2.innerHTML = res_list2;
-                list3.innerHTML = res_list3;
-
-
+                list1.innerHTML = list1_options;
+                list2.innerHTML = list2_options;
+                list3.innerHTML = list3_options;
 
             }
+
 
 
 
@@ -55,6 +63,8 @@
         }
 
         function choisir(element) {
+            document.getElementById('liste1').classList.toggle('samih');
+            console.log(element);
             var list1 = document.getElementById('liste1');
             var list1_options = list1.options;
 
@@ -65,10 +75,10 @@
             var list3_options = list3.options;
 
             for (i = 0; i < list1_options.length; i++) {
-                s
+
 
                 // ! list 1 
-                if (list1_options[i].value.toLowerCase().startsWith(element.value)) {
+                if (list1_options[i].value.startsWith(element.value)) {
                     list1_options[i].setAttribute("selected", '');
                 }
                 else {
@@ -76,7 +86,7 @@
                 }
 
                 // ! list 2 
-                if (list2_options[i].value.toLowerCase().startsWith(element.value)) {
+                if (list2_options[i].value.startsWith(element.value)) {
                     list2_options[i].setAttribute("selected", '');
                 }
                 else {
@@ -84,7 +94,7 @@
                 }
 
                 // ! list 3 
-                if (list3_options[i].value.toLowerCase().startsWith(element.value)) {
+                if (list3_options[i].value.startsWith(element.value)) {
                     list3_options[i].setAttribute("selected", '');
                 }
                 else {
@@ -111,8 +121,9 @@
 
 <body onload="creerListe(); creerRadio();">
     <h2>Villes libanaises </h2>
-    <div> <select name="liste1" id="liste1" size="7" multiple></select> <select name="liste2" id="liste2" size="7"
-            multiple></select> <select name="liste2" id="liste3" size="7" multiple></select> </div>
+    <div> <select name="liste1" id="liste1" size="7" multiple></select> <select name="liste2" id="liste2" size="7" multiple></select>
+        <select name="liste2" id="liste3" size="7" multiple></select>
+    </div>
     <div id="bt"> </div>
 </body>
 

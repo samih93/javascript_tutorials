@@ -23,6 +23,69 @@
         }
     </style>
     <script>
+        function calculPoids() {
+            var age = document.getElementById('age').value;
+            var taille = document.getElementById('taille').value;
+            var poidActuel = document.getElementById('poids').value;
+
+            var radio = document.querySelector('input[checked]');
+
+            var poidideal = "";
+
+            if (radio.id == 'h') {
+                poidideal = (3 * taille - 250) * (+age + 270) / 1200;
+            }
+            else {
+                poidideal = Math.round((taille / 2 - 30) * (180 + age) / 200);
+            }
+
+            var vous_devez = 0;
+            var res1 = `<div id="res1">L'ideal Est ${poidideal} Kg</div>`;
+            var res2 = "";
+
+            console.log(poidActuel - poidideal);
+            console.log(poidideal - poidActuel);
+            if ((poidActuel - poidideal <= 2 && poidActuel - poidideal >= 0) || (poidideal - poidActuel <= 2 && poidideal - poidActuel >= 0)) {
+                res2 = 'Votre poids est idéal';
+                document.getElementById('res').innerHTML = message;
+            }
+
+            if (poidActuel > poidideal) {
+                vous_devez = poidActuel - poidideal;
+                res2 = `vous devez perdre ${vous_devez} Kg`;
+            }
+            else {
+                vous_devez = poidideal - poidActuel;
+                res2 = `vous devez grossir ${vous_devez} Kg`;
+            }
+
+            res2 = `<div id='res2'> ${res2} </div>`;
+            document.getElementById('res').innerHTML = res1 + res2;
+
+            document.getElementById('res1').style.color = 'blue';
+            document.getElementById('res2').style.color = 'red';
+
+
+
+
+
+        }
+
+        window.onload = function () {
+            var radios = document.querySelectorAll('input[type=radio]');
+
+
+            radios.forEach(function (e) {
+                e.addEventListener('click', function () {
+                    this.setAttribute('checked', '');
+                    if (this.id == "h")
+                        document.getElementById('f').removeAttribute('checked');
+                    else
+                        document.getElementById('h').removeAttribute('checked');
+                });
+            });
+
+        }
 
     </script>
 </head>
@@ -30,8 +93,8 @@
 <body>
     <h2>Poids idéal</h2>
     <div>Votre Age <input id="age" /> &emsp;Votre Taille(cm) <input id="taille" /></div>
-    <div>Homme <input type="radio" name="genre" id="h" checked="checked" /> Femme <input type="radio" name="genre"
-            id="f" /> &emsp; Votre poids actuel <input id="poids" /></div>
+    <div>Homme <input type="radio" name="genre" id="h" checked /> Femme <input type="radio" name="genre" id="f" /> &emsp; Votre
+        poids actuel <input id="poids" /></div>
     <div><input type="button" value="Calculer Poids idéal" onclick="calculPoids()" /></div>
     <div class="x" id="res"> </div>
 </body>

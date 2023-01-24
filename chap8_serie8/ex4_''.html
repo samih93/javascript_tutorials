@@ -34,6 +34,7 @@
             'Baabda-M', 'Zgharta-N', 'Baalbek-B', 'Aley-M', 'Byblos-M', 'Rayak-B', 'Marjayoun-S', 'Amioun-N', 'Jezzine-S',
             'Rachaya-B', 'Hermel-B', 'Batroun-N', 'Halba-N'];
 
+
         let lettres = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
         res_list1 = "";
         res_list2 = "";
@@ -43,11 +44,11 @@
             var list2 = document.getElementById('liste2');
             var list3 = document.getElementById('liste3');
             for (i = 0; i < villes.length; i++) {
-                if (i < 7) res_list1 += `<option onclick="onclickOption(this)" value=${villes[i]}>${villes[i]}</option>`;
+                if (i < 7) res_list1 += `<option  value=${villes[i]}>${villes[i]}</option>`;
                 else
-                    if (i < 14) res_list2 += `<option onclick="onclickOption(this)" value=${villes[i]}>${villes[i]}</option>`;
+                    if (i < 14) res_list2 += `<option value=${villes[i]}>${villes[i]}</option>`;
                     else
-                        res_list3 += `<option onclick="onclickOption(this)" value=${villes[i]}>${villes[i]}</option>`;
+                        res_list3 += `<option value=${villes[i]}>${villes[i]}</option>`;
 
                 list1.innerHTML = res_list1;
                 list2.innerHTML = res_list2;
@@ -62,23 +63,14 @@
         }
 
 
-        var optionsSelected = [];
-        function onclickOption(element) {
-            if (!optionsSelected.includes(element))
-                optionsSelected.push(element);
 
-            render(optionsSelected);
-
-        }
-
-        function render(option) {
+        function render(options) {
             var selectedRegion = "";
-            option.forEach(function (e) {
+            options.forEach(function (e) {
                 var myval = e.getAttribute('value').toString().split('-');
 
                 var nom = myval[0];
                 var region = myval[1] == "C" ? "Captial" : myval[1] == "B" ? "Bekaa" : myval[1] == 'S' ? 'Sud-Liban' : myval[1] == "N" ? 'Nord-Liban' : "Mont-Liban";
-                console.log(nom + " -  " + region);
 
                 selectedRegion += `<tr> <td>${nom}</td><td>${region}</td></tr>`
 
@@ -87,27 +79,40 @@
             document.getElementById('tb').innerHTML = selectedRegion;
         }
 
+
+        var optionsSelected = [];
+        function ajouter(element) {
+            // get all option from this select 
+            var options = element.options;
+            // add selected index
+            console.log(options); // return 7 option and the selected index 
+            // i need the option at the selected index
+            optionsSelected.push(options[element.options['selectedIndex']]);
+
+            render(optionsSelected);
+        }
+
         function supprimer() {
-            var val = prompt("entre un number");
+            var index = parseInt(prompt("entre un number"));
 
-            const index = optionsSelected.indexOf(val);
-
+            // takes 2 parameter  
+            // 1  first start index 
+            //2 delete count 
             optionsSelected.splice(index, 1);
-
 
             render(optionsSelected);
 
         }
-
 
     </script>
 </head>
 
 <body onload="creerListe()">
     <h2>Villes libanaises </h2>
-    <div> <select name="liste1" id="liste1" size="7" multiple></select> <select name="liste2" id="liste2" size="7" multiple></select>
-        <select name="liste2" id="liste3" size="7" multiple></select> <input type="button" value="Supprimer une ligne"
-            onclick="supprimer()" />
+    <div> <select name="liste1" id="liste1" onchange="ajouter(this)" size="7" multiple>
+        </select> <select name="liste2" onchange="ajouter(this)" id="liste2" size="7" multiple></select>
+        <select name="liste2" id="liste3" onchange="ajouter(this)" size="7" multiple></select>
+        <input type="button" value="Supprimer une ligne" onclick="supprimer()" />
     </div>
     </div>
     <table border="1" id="tb"> </table>

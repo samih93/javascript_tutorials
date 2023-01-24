@@ -16,7 +16,33 @@
     </style>
     <script>
         function calculer(element) {
-            console.log(element.value);
+            var v1 = document.getElementById('v1').value;
+            var v2 = document.getElementById('v2').value;
+
+
+            var res = "";
+            switch (element.value) {
+                case " + ":
+                    res = `Résultat : ${v1} + ${v2} = ${+v1 + +v2}`;
+                    break;
+
+                case " - ":
+                    res = `Résultat : ${v1} - ${v2} = ${v1 - v2}`;
+                    break;
+
+                case " * ":
+                    res = `Résultat : ${v1} * ${v2} = ${v1 * v2}`;
+                    break;
+                    
+                default:
+                    res = `Résultat : ${v1} / ${v2} = ${v1 / v2}`;
+                    break;
+
+
+
+            }
+            console.log(res);
+            document.getElementById('res').innerHTML = res;
         }
 
     </script>
@@ -28,8 +54,8 @@
     <h2>Opérations arithmetiques </h2>
     <div>Valeur1 <input id="v1" /> Valeur2 <input id="v2" /></div>
     <div><input type="button" value=" + " onclick="calculer(this)" />&emsp; <input type="button" value=" - "
-            onclick="calculer(this)" />&emsp; <input type="button" value=" * " onclick="calculer(this)" />&emsp; <input
-            type="button" value=" / " onclick="calculer(this)" /> </div>
+            onclick="calculer(this)" />&emsp; <input type="button" value=" * " onclick="calculer(this)" />&emsp; <input type="button"
+            value=" / " onclick="calculer(this)" /> </div>
     <div id="res"> </div>
 </body>
 
