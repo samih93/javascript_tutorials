@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let d = new Date(2022, 2, 21);
+        // let d = new Date("2022, 2, 21"); == > here 2 is feb and 1 jan
+        console.log(d.getDate());  // get day in month
+        console.log(d.getMonth()); // get month in year
+        console.log(d.getFullYear()); // get year like 2023
+        console.log(d.getDay()); // return day in week   0=>sunday ... 6=> saturday
+        console.log(d.getUTCDay()); // get day in week depends  to universal time
+        console.log(d.getUTCDate());  // get day in month
+        console.log(d.getUTCMonth()); // get month in year
+
+        d.setDate(24); // set day in month
+        d.setMonth(0); // set month in year to janvier
+        d.setFullYear(2025); // set year  to 2025
+
+
+        console.log(d.toLocaleDateString());
+        console.log(d.toLocaleTimeString());
+        console.log(d.toLocaleString());
+        console.log(d);
+
+        let date1 = new Date();
+        var datelocal = date1.toLocaleString('en-EN', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+        });
+
+        console.log(date1);
+
+
+
+        //! Object 
+        let tab =
+        {
+            "java": "langage orienté",
+            "lisp": "langage fonctionnel"
+        };
+        console.log(tab['java']);
+        tab.java = "samih";
+        console.log(tab);
+        console.log(tab.java);
+
+        //delete tab['java'];
+
+        // loop on keys
+        Object.keys(tab).forEach(function (e) {
+            console.log(e, tab[e]);
+
+        });
+
+        //loop on values
+        Object.values(tab).forEach(function (e) {
+            console.log(e);
+        });
+
+        // Object.entries() 
+        // entry is an array contains key , value  ==> [key ,value]
+        Object.entries(tab).forEach(function (entry) {
+            var [key, value] = entry; // desctruction syntax
+            console.log(entry[0], entry[1]);
+            console.log(key, value);
+        });
+
+        console.log(tab.hasOwnProperty('java'));
+
+        // splice explain 
+        let arr = [1, 2, 3];
+
+        arr.splice(1, 0, 4, 3, 4, 5);
+        console.log(arr);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
