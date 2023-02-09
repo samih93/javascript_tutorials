@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         td {
+            border: 2px solid blue;
+            text-align: center
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    Nombre de lignes / colonnes <input id = "nb" >
+     <br/> 
+    <input type = "button" value = "Creer Table" onclick = "creerTable()"> 
+    <br/>
+     <div id = "aff" > </div>
+</body>
+<script>
+
+    function creerTable()
+    {
+        var nb = document.getElementById('nb').value;
+        var table = "<table>";
+
+for (i = 0; i < nb; i++) {
+
+    table += "<tr>";
+    for (j = 0; j < nb; j++) {
+        var random = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+        table += `<td>${random}</td>`;
+
+    }
+    table += "</tr>";
+}
+
+table += "</table>";
+
+    document.getElementById('aff').innerHTML = table;
+    }
+</script>
+</html>

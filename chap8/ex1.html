@@ -6,7 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<script>
+    // ex1 : 
+    function nouvelleDate(date,nbofJourOrMonth,isForJour){
+        var d = new Date(date);
+        if(isForJour)
+        d.setDate(nbofJourOrMonth!=undefined? nbofJourOrMonth:d.getDate());
+        else
+        d.setMonth(nbofJourOrMonth!=undefined? nbofJourOrMonth:d.getMonth());
 
+        return d;
+        }
+
+
+        // ex:2 
+        function dateJour(date,separator){
+            var d = new Date(date);                                                                                                                   
+
+            return `${d.getDate()}${separator}${d.getMonth()}${separator}${d.getFullYear()}`;
+        }
+
+        //ex :3 
+
+        function comparerDates(date1,date2)
+        {
+            return date1>date2? 'date1 > date2' : 'date1 < date2';
+        }
+
+        //ex:4
+        function plusRepete(tab)
+        {
+            var obj ={};
+            tab.forEach(function(e){
+                if(obj.hasOwnProperty(e))
+                obj[e] = obj[e] +1 ;
+                else
+                obj[e]=1;
+            });
+
+            
+            var ar  = Object.entries(obj).sort(([,a],[,b])=>b-a);
+
+            return ar[0][0];
+        }
+        //ex:5
+        function union(tab1,tab2)
+        {
+            var unionArray = tab1; // same [...tab1]
+            tab2.forEach(function(e){
+                if(!unionArray.includes(e))
+                unionArray.push(e);
+            });
+
+            return unionArray;
+
+        }
+
+        
+        
+
+     console.log(nouvelleDate('2023-02-22',11,false));
+     console.log(dateJour('2023-02-22','-'));                                                                                                                                           
+     console.log(comparerDates('2023-02-22','2023-02-25'));   
+     
+     console.log(plusRepete(['x','a','b','x','x','x','x','x','x','x','a','c','a','b','d','d','a','e','e','f']));
+
+     console.log(union([12,7,9],[7,5,9,8]));
+
+</script>
 </head>
 
 <body>
