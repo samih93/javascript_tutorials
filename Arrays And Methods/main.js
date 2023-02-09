@@ -21,10 +21,10 @@ console.log(friends); // ["Eman", "Osama"]
 
 let arrOne = ["C", "D", "X"];
 let arrTwo = ["A", "B", "Z"];
-let finalArr = [];
 arrOne.reverse().unshift(arrTwo[arrTwo.length-1]);
 arrTwo.pop();
-arrOne.push(arrTwo.pop(),arrTwo.pop());
+//arrOne.push(arrTwo.pop(),arrTwo.pop());
+arrOne.push(...arrTwo.reverse());
 
 // Write One Single Line Of Code
 
@@ -32,9 +32,9 @@ console.log(arrOne); // ["Z", "X", "D", "C", "B", "A"]
 
 
 let website = "Go";
-let words = [`${website}ogle`, "Facebook", ["Elzero", "Web", "School"]];
+let words = [`${website}ogle`, "Facebook", ["samih", "ahmad", "damaj"]];// AMIH
 
-console.log(words[website.length].shift().slice(website.length).toUpperCase()); // ZERO
+console.log(words[website.length].shift().slice(website.length).toUpperCase()); 
 
 
 let needle = "JS";
